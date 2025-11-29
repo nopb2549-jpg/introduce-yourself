@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body class="h-auto bg-gray-900 fonts-sans-serif">
+    <!-- --------------------------- NAVBAR --------------------------- -->
+    <nav class="bg-gray-800 text-white relative">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex justify-between items-center h-16">
+
+          <!-- Logo -->
+          <a href="index.html" class="text-xl font-bold">Napha Portfolio</a>
+
+          <!-- MENU (Desktop) -->
+          <ul class="hidden md:flex gap-6 items-center">
+
+            <li><a href="index.html" class="hover:text-gray-300">Home</a></li>
+            <li><a href="about.html" class="hover:text-gray-300">About</a></li>
+            <li><a href="skills.html" class="hover:text-gray-300">Skills</a></li>
+
+            <!-- Dropdown (Click) -->
+            <li class="relative">
+              <button id="projectBtn" class="hover:text-gray-300 flex items-center gap-1">
+                Projects ▾
+              </button>
+
+              <ul id="projectMenu"
+                  class="absolute hidden bg-white text-gray-900 shadow-lg rounded-md mt-2 min-w-[200px] z-50">
+                <li><a href="project-locker.html" class="block px-4 py-2 hover:bg-gray-100">เว็บเช่าตู้ล็อกเกอร์</a></li>
+                <li><a href="project-shop.html" class="block px-4 py-2 hover:bg-gray-100">เว็บขายฟิกเกอร์</a></li>
+                <li><a href="project-react.html" class="block px-4 py-2 hover:bg-gray-100">React Projects</a></li>
+                <li><a href="project-wokwi.html" class="block px-4 py-2 hover:bg-gray-100">ทดลอง Wokwi (IoT)</a></li>
+              </ul>
+            </li>
+
+            <li><a href="activities.html" class="hover:text-gray-300">Activities</a></li>
+          </ul>
+
+          <!-- Hamburger -->
+          <button id="menuBtn" class="md:hidden text-white text-2xl">☰</button>
+        </div>
+
+        <!-- MENU (Mobile) -->
+        <ul id="mobileMenu" class="hidden flex-col gap-3 pb-4 md:hidden text-white">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="skills.html">Skills</a></li>
+
+          <li class="border-t border-gray-700 pt-2"></li>
+
+          <li><a href="project-locker.html">เว็บเช่าตู้ล็อกเกอร์</a></li>
+          <li><a href="project-shop.html">เว็บขายฟิกเกอร์</a></li>
+          <li><a href="project-react.html">React Projects</a></li>
+          <li><a href="project-wokwi.html">ทดลอง Wokwi (IoT)</a></li>
+
+          <li class="border-t border-gray-700 pt-2"></li>
+
+          <li><a href="activities.html">Activities</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Script -->
+    <script>
+      // Mobile menu toggle
+      const btn = document.getElementById("menuBtn");
+      const menu = document.getElementById("mobileMenu");
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+        menu.classList.toggle("flex");
+      });
+
+      // Desktop project dropdown (click)
+      const projectBtn = document.getElementById("projectBtn");
+      const projectMenu = document.getElementById("projectMenu");
+
+      projectBtn.addEventListener("click", () => {
+        projectMenu.classList.toggle("hidden");
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!projectBtn.contains(e.target) && !projectMenu.contains(e.target)) {
+          projectMenu.classList.add("hidden");
+        }
+      });
+    </script>
+
+<!-- Nnd Nav -->
+
+    <!-- Header -->
+    <header class="py-10 text-center">
+        <h1 class="text-4xl font-bold text-indigo-600">Contact Me</h1>
+        <p class="text-gray-600 mt-2">Feel free to reach out for work or collaboration</p>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="max-w-3xl mx-auto px-6 py-10 bg-white shadow-lg rounded-2xl">
+        
+        <!-- Social / Contact List -->
+        <div class="space-y-6">
+        <div>
+            <h2 class="text-xl font-semibold text-gray-700 mb-2">Email</h2>
+            <a href="mailto:your-email@example.com"
+            class="text-indigo-600 hover:underline">
+            your-email@example.com
+            </a>
+        </div>
+
+        <div>
+            <h2 class="text-xl font-semibold text-gray-700 mb-2">GitHub</h2>
+            <a href="https://github.com/yourgithub"
+            target="_blank"
+            class="text-indigo-600 hover:underline">
+            github.com/yourgithub
+            </a>
+        </div>
+
+        <div>
+            <h2 class="text-xl font-semibold text-gray-700 mb-2">Facebook / Line</h2>
+            <p class="text-gray-600">Facebook:  
+            <a href="#" target="_blank" class="text-indigo-600 hover:underline">@yourFB</a>
+            </p>
+            <p class="text-gray-600">Line ID: <span class="font-medium">@yourline</span></p>
+        </div>
+        </div>
+
+        <!-- Download Resume -->
+        <div class="mt-8">
+        <a href="resume.pdf" download
+            class="inline-block px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-medium transition">
+            Download Resume (PDF)
+        </a>
+        </div>
+
+        <!-- Contact Form (Optional) -->
+        <form class="mt-10 space-y-4">
+        <h2 class="text-xl font-semibold text-gray-700 mb-4">Send me a message</h2>
+
+        <input type="text" placeholder="Your Name"
+                class="w-full p-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-400">
+
+        <input type="email" placeholder="Your Email"
+                class="w-full p-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-400">
+
+        <textarea placeholder="Message"
+                    class="w-full p-3 border rounded-xl h-32 resize-none focus:outline-none focus:ring-2 focus:ring-indigo-400"></textarea>
+
+        <button type="submit"
+                class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-medium transition">
+            Send Message
+        </button>
+        </form>
+
+    </section>
+
+
+    <!-- footer -->
+    <footer class="bg-gray-700 text-white pt-3">
+        <div class="max-w-7xl mx-auto px-4">
+        <!-- Top Section -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+            
+            <!-- Logo & Description -->
+            <div class="mx-auto md:mx-0">
+            <a href="/genshin/index.php" class="inline-block mb-4">
+                <h5 class="flex items-center justify-center md:justify-start mb-3 text-lg font-bold">
+                Napha
+                </h5>
+            </a>
+            <p class="text-sm md:text-base">
+                ที่นี่ คุณสามารถชมผลงาน ทักษะ และโปรเจคเกี่ยวกับ Front-End, React และ IoT ของผม มาสร้างสิ่งเจ๋ง ๆ ด้วยกัน
+            </p>
+            </div>
+
+            <!-- Menu Links -->
+            <div class="mx-auto md:mx-0">
+            <h5 class="uppercase mb-3 text-white text-shadow-sm">เมนู</h5>
+            <div class="flex flex-col gap-1">
+                <a href="/genshin/product_detail/SPECIAL1.php" class="text-shadow-white text-white text-shadow-lg">เว็บเช่าตู้ล็อกเกอร์</a>
+                <a href="/genshin/product_detail/SPECIAL2.php" class="text-shadow-white text-white text-shadow-lg">เว็บขายฟิกเกอร์</a>
+                <a href="/genshin/product_detail/SPECIAL3.php" class="text-shadow-white text-white text-shadow-lg">React Projects</a>
+                <a href="/genshin/product_detail/SPECIAL4.php" class="text-shadow-white text-white text-shadow-lg">ทดลอง Wokwi (IoT)</a>
+            </div>
+            </div>
+
+            <!-- Contact Links -->
+            <div class="mx-auto md:mx-0">
+            <h5 class="uppercase mb-3 text-white text-shadow-sm">ติดต่อ</h5>
+            <div class="flex flex-col gap-1">
+                <a href="" class="text-shadow-white text-white text-shadow-lg flex items-center gap-2">
+                <i class="bi bi-telephone"></i> 065-932-0026
+                </a>
+                <a href="mailto:nopb.2549@gmail.com" target="_blank" class="text-shadow-white text-white text-shadow-lg flex items-center gap-2">
+                <i></i> nopb.2549@gmail.com
+                </a>
+                <a href="https://www.facebook.com/nop.thammawatthanawong/" target="_blank" rel="noopener noreferrer" class="text-shadow-white text-white text-shadow-lg flex items-center gap-2">
+                <i class="bi bi-telephone"></i> facebook
+                </a>
+            </div>
+            </div>
+
+        </div>
+
+        <hr class="my-6 border-gray-300">
+
+        <!-- Bottom Section -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center text-center md:text-left">
+            <div>
+            &copy; 2025 All rights reserved by: <strong class="text-white">Napha</strong>
+            </div>
+            <div class="flex justify-center md:justify-end gap-4">
+            <a href="https://line.me/ti/p/bzIcsl1TBe" target="_blank" class="text-white hover:text-green-400">
+                <i class="bi bi-line text-xl"></i>
+            </a>
+            <a href="https://www.facebook.com/nop.thammawatthanawong/" target="_blank" class="text-white hover:text-blue-500">
+                <i class="bi bi-facebook text-xl"></i>
+            </a>
+            <a href="https://www.instagram.com/accounts/login/?hl=en" target="_blank" class="text-white hover:text-pink-500">
+                <i class="bi bi-instagram text-xl"></i>
+            </a>
+            </div>
+        </div>
+        </div>
+    </footer>
+    <!--End footer -->
+</body>
+</html>

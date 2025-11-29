@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai+Looped:wght@100..900&display=swap');
+  body{
+    font-family: "Noto Sans Thai Looped", sans-serif !important;
+    }
+    .text-shadow-sky {
+    text-shadow: 2px 2px 4px #ffffff; /* Tailwind sky-300 */
+  }
+
+  .text-shadow-lg:hover {
+    text-shadow: 4px 4px 8px #ffffff;
+  }
+</style>
+<body class="h-auto bg-gray-900 text-gray-50 fonts-sans-serif">
+<!-- --------------------------- NAVBAR --------------------------- -->
+    <nav class="bg-gray-800 text-white relative">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex justify-between items-center h-16">
+
+          <!-- Logo -->
+          <a href="index.html" class="text-xl font-bold">Napha Portfolio</a>
+
+          <!-- MENU (Desktop) -->
+          <ul class="hidden md:flex gap-6 items-center">
+
+            <li><a href="index.html" class="hover:text-gray-300">Home</a></li>
+            <li><a href="about.html" class="hover:text-gray-300">About</a></li>
+            <li><a href="skills.html" class="hover:text-gray-300">Skills</a></li>
+
+            <!-- Dropdown (Click) -->
+            <li class="relative">
+              <button id="projectBtn" class="hover:text-gray-300 flex items-center gap-1">
+                Projects ▾
+              </button>
+
+              <ul id="projectMenu"
+                  class="absolute hidden bg-white text-gray-900 shadow-lg rounded-md mt-2 min-w-[200px] z-50">
+                <li><a href="project-locker.html" class="block px-4 py-2 hover:bg-gray-100">เว็บเช่าตู้ล็อกเกอร์</a></li>
+                <li><a href="project-shop.html" class="block px-4 py-2 hover:bg-gray-100">เว็บขายฟิกเกอร์</a></li>
+                <li><a href="project-react.html" class="block px-4 py-2 hover:bg-gray-100">React Projects</a></li>
+                <li><a href="project-wokwi.html" class="block px-4 py-2 hover:bg-gray-100">ทดลอง Wokwi (IoT)</a></li>
+              </ul>
+            </li>
+
+            <li><a href="activities.html" class="hover:text-gray-300">Activities</a></li>
+            
+          </ul>
+
+          <!-- Hamburger -->
+          <button id="menuBtn" class="md:hidden text-white text-2xl">☰</button>
+        </div>
+
+        <!-- MENU (Mobile) -->
+        <ul id="mobileMenu" class="hidden flex-col gap-3 pb-4 md:hidden text-white">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="skills.html">Skills</a></li>
+
+          <li class="border-t border-gray-700 pt-2"></li>
+
+          <li><a href="project-locker.html">เว็บเช่าตู้ล็อกเกอร์</a></li>
+          <li><a href="project-shop.html">เว็บขายฟิกเกอร์</a></li>
+          <li><a href="project-react.html">React Projects</a></li>
+          <li><a href="project-wokwi.html">ทดลอง Wokwi (IoT)</a></li>
+
+          <li class="border-t border-gray-700 pt-2"></li>
+
+          <li><a href="activities.html">Activities</a></li>
+          
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Script -->
+    <script>
+      // Mobile menu toggle
+      const btn = document.getElementById("menuBtn");
+      const menu = document.getElementById("mobileMenu");
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+        menu.classList.toggle("flex");
+      });
+
+      // Desktop project dropdown (click)
+      const projectBtn = document.getElementById("projectBtn");
+      const projectMenu = document.getElementById("projectMenu");
+
+      projectBtn.addEventListener("click", () => {
+        projectMenu.classList.toggle("hidden");
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!projectBtn.contains(e.target) && !projectMenu.contains(e.target)) {
+          projectMenu.classList.add("hidden");
+        }
+      });
+    </script>
+
+<!-- Nnd Nav -->
+
+
+      <!-- Header -->
+    <header class="text-white py-6 text-center">
+      <h1 class="text-3xl font-bold">Project Locker</h1>
+      <p class="mt-2 text-gray-200">ระบบเช่าตู้ล็อกเกอร์ ผ่านเว็บแอปพลิเคชัน</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-10 space-y-10">
+
+      <!-- 1. Project Images -->
+      <section class="space-y-4">
+        <h2 class="text-2xl font-semibold">ตัวอย่างโปรเจกต์</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <img src="/Img/ล็อกเอร์.png" alt="Locker Screenshot 1" class="rounded shadow-md object-cover w-full h-74">
+          <img src="img/เช่า.png" alt="Locker Screenshot 2" class="rounded shadow-md object-cover w-full h-69">
+          <img src="/Img/สถานะ.png" alt="Locker Screenshot 3" class="rounded shadow-md object-cover w-full h-74">
+        </div>
+      </section>
+
+      <!-- 2. Technology & Short Description -->
+      <section class="bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-xl text-gray-800 font-semibold mb-2">องค์ประกอบในการทำโปรเจค</h2>
+        <p class="text-gray-700 text-lg mb-4">Esp-32 pg-admain github vscode</p>
+        <h2 class="text-xl text-gray-800 font-semibold mb-2">ระบบการทำงาน</h2>
+        <p class="text-gray-700">
+          ผู้ใช้ เข้าสู่ระบบ เลือกบริการตู้ล็อกเกอร์ ก่อนที่ลูกค้าจะเลือกบริการ ระบบจะตรวจสอบฐานข้อมูล ถ้าไม่ว่างจะแจ้งเตือนกลับไปยังผู้ใช้ ถ้าว่างระบบจะอนุญาตให้จอง Esp จะรับข้อมูลจาก Server
+          เพื่อให้ตู้ล็อกเกอร์เปิด แล้ว Update สถานะตู้ว่าใช้งานอยู่
+        </p>
+      </section>
+
+      <!-- 3. Problem / Goal -->
+      <section class="bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-xl font-semibold mb-2 text-gray-700">ปัญหา และ วัตถุประสงค์</h2>
+        <p class="text-gray-700">
+          ผู้ใช้งานตู้ล็อกเกอร์ทั่วไปมักประสบปัญหาการจัดการกุญแจ เช่น กุญแจหาย การใช้งานไม่สะดวก และมีความเสี่ยงด้านความปลอดภัย 
+          ระบบนี้ถูกพัฒนาขึ้นเพื่อปรับปรุงประสบการณ์ใช้งานให้ดีขึ้น โดยเปลี่ยนจากกุญแจแบบเดิมมาเป็น ระบบควบคุมตู้แบบออนไลน์ ให้ผู้ใช้สามารถเปิด–ปิดตู้ได้ผ่านเว็บไซต์อย่างปลอดภัยและรวดเร็ว
+        </p>
+      </section>
+
+      <!-- 4. Solution / Approach -->
+      <section class="bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-xl text-gray-800 font-semibold mb-2">วิธีแก้ และ แนวทาง</h2>
+        <p class="text-gray-700">เปิด–ปิดตู้ผ่านเว็บแอปแล้วสามารถระบบแสดงสถานะตู้แบบ Real-time</p>
+      </section>
+
+      <!-- 5. Features -->
+      <section class="bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-xl text-gray-700 font-semibold mb-2">ฟีเจอร์หลัก</h2>
+        <ul class="list-disc list-inside text-gray-700 space-y-1">
+          <li class="flex">บอกเวลการจองที่เหลือของลูกค้า</li>
+          <li class="flex">คำนวนราคาการจองตู้ล็อกเกอร์</li>
+          <li class="flex">ควบคุมการเปิดปิดตู้ผ่านเว็บแอพ</li>
+          <li class="flex">แสดงสถานะตู้ล็อกเกอร์และเวลาคงเหลือในการใช้งานแบบ Real-time เพื่อแจ้งให้ผู้ใช้ทราบได้ล่วงหน้าว่าตู้ใดจะว่างเมื่อไหร</li>
+        </ul>
+      </section>
+
+      <!-- 6. Challenges / Learning -->
+      <section class="bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-xl text-gray-700 font-semibold mb-2">สิ่งที่เรียนรู้</h2>
+        <p class="text-gray-700">เรียนรู้การเชื่อมต่อ Sensor กับ Arduino, การทำ Dashboard แบบเรียลไทม์ และการจัดการระบบ IoT ขนาดเล็ก</p>
+      </section>
+
+    </main>
+
+
+
+    <!-- footer -->
+        <footer class="bg-gray-700 text-white pt-3">
+            <div class="max-w-7xl mx-auto px-4">
+            <!-- Top Section -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                
+                <!-- Logo & Description -->
+                <div class="mx-auto md:mx-0">
+                <a href="/genshin/index.php" class="inline-block mb-4">
+                    <h5 class="flex items-center justify-center md:justify-start mb-3 text-lg font-bold">
+                    Napha
+                    </h5>
+                </a>
+                <p class="text-sm md:text-base">
+                    ที่นี่ คุณสามารถชมผลงาน ทักษะ และโปรเจคเกี่ยวกับ Front-End, React และ IoT ของผม มาสร้างสิ่งเจ๋ง ๆ ด้วยกัน
+                </p>
+                </div>
+
+                <!-- Menu Links -->
+                <div class="mx-auto md:mx-0">
+                <h5 class="uppercase mb-3 text-white text-shadow-sm">เมนู</h5>
+                <div class="flex flex-col gap-1">
+                    <a href="/genshin/product_detail/SPECIAL1.php" class="text-shadow-white text-white text-shadow-lg">เว็บเช่าตู้ล็อกเกอร์</a>
+                    <a href="/genshin/product_detail/SPECIAL2.php" class="text-shadow-white text-white text-shadow-lg">เว็บขายฟิกเกอร์</a>
+                    <a href="/genshin/product_detail/SPECIAL3.php" class="text-shadow-white text-white text-shadow-lg">React Projects</a>
+                    <a href="/genshin/product_detail/SPECIAL4.php" class="text-shadow-white text-white text-shadow-lg">ทดลอง Wokwi (IoT)</a>
+                </div>
+                </div>
+
+                <!-- Contact Links -->
+                <div class="mx-auto md:mx-0">
+                <h5 class="uppercase mb-3 text-white text-shadow-sm">ติดต่อ</h5>
+                <div class="flex flex-col gap-1">
+                    <a href="" class="text-shadow-white text-white text-shadow-lg flex items-center gap-2">
+                    <i class="bi bi-telephone"></i> 065-932-0026
+                    </a>
+                    <a href="mailto:nopb.2549@gmail.com" target="_blank" class="text-shadow-white text-white text-shadow-lg flex items-center gap-2">
+                    <i></i> nopb.2549@gmail.com
+                    </a>
+                    <a href="https://www.facebook.com/nop.thammawatthanawong/" target="_blank" rel="noopener noreferrer" class="text-shadow-white text-white text-shadow-lg flex items-center gap-2">
+                    <i class="bi bi-telephone"></i> facebook
+                    </a>
+                </div>
+                </div>
+
+            </div>
+
+            <hr class="my-6 border-gray-300">
+
+            <!-- Bottom Section -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center text-center md:text-left">
+                <div>
+                &copy; 2025 All rights reserved by: <strong class="text-white">Napha</strong>
+                </div>
+                <div class="flex justify-center md:justify-end gap-4">
+                <a href="https://line.me/ti/p/bzIcsl1TBe" target="_blank" class="text-white hover:text-green-400">
+                    <i class="bi bi-line text-xl"></i>
+                </a>
+                <a href="https://www.facebook.com/nop.thammawatthanawong/" target="_blank" class="text-white hover:text-blue-500">
+                    <i class="bi bi-facebook text-xl"></i>
+                </a>
+                <a href="https://www.instagram.com/accounts/login/?hl=en" target="_blank" class="text-white hover:text-pink-500">
+                    <i class="bi bi-instagram text-xl"></i>
+                </a>
+                </div>
+            </div>
+            </div>
+        </footer>
+    <!--End footer -->
+</body>
+</html>
